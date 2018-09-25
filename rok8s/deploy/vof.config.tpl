@@ -21,18 +21,18 @@ CONFIGMAPS=()
 SERVICE_ACCOUNTS=()
 
 # List of files ending in '.secret.yml' in the kube directory
-SECRETS=('admin-network-backend' 'admin-network-tls')
+SECRETS=('vof' 'vof-tls')
 
 # List of files ending in '.service.yml' in the kube directory
-SERVICES=('admin-network-backend')
+SERVICES=('vof')
 # List of ingress resource files ending in '.ingress.yml' in the kube directory
-INGRESSES=("admin-network-{{ NAMESPACE }}")
+INGRESSES=("vof-{{ NAMESPACE }}")
 
 # List of files ending in '.deployment.yml' in the kube directory
-DEPLOYMENTS=('admin-network')
+DEPLOYMENTS=('vof')
 
 # List of files ending in '.horizontal_pod_autoscaler.yml' in the kube directory
-HORIZONTAL_POD_AUTOSCALERS=('admin-network')
+HORIZONTAL_POD_AUTOSCALERS=('vof')
 
 # List of files ending in '.blockingjob.yml' in the kube directory
-BLOCKING_JOBS=('admin-network')
+BLOCKING_JOBS=('vof')

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_NAME=admin-network
+PROJECT_NAME=vof
 
 source bin/utils.sh
 source deploy/template.sh

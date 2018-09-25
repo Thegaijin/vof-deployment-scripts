@@ -13,28 +13,13 @@ spec:
     spec:
       containers:
         - name: {{ PROJECT_NAME }}
-          image: {{ DOCKER_REGISTRY }}/{{ PROJECT_ID }}/{{ PROJECT_NAME }}:{{ IMAGE_TAG }}
-          command:
-            - node
-            - index.js
+          image: redis
           ports:
           - containerPort: {{ PORT }}
             name: http
           env:
             - name: PORT
               value: "{{ PORT }}"
-            - name: NODE_ENV
-              value: {{ NAMESPACE }}
-            - name: DATABASE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: {{ PROJECT_NAME }}-secrets
-                  key: DatabaseUrl
-            - name: JWT_PUBLIC_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ PROJECT_NAME }}-secrets
-                  key: JwtPublicKey
             - name: DEFAULT_ADMIN
               valueFrom:
                 secretKeyRef:
