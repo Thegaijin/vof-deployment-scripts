@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: haproxy
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: haproxy
+    spec:
+      containers:
+        - name: haproxy
+          image: gcr.io/${GCLOUD_VOF_PROJECT}/apprenticeship-haproxy-image
+          ports:
+            - containerPort: 8000
+              name: http
+            - containerPort: 9000
+              name: https
+            - containerPort: 26999
+              name: stats
+          readinessProbe:
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 1
+            successThreshold: 2
+            failureThreshold: 2
+            tcpSocket:
+              port: 26999
